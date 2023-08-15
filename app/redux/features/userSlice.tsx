@@ -2,17 +2,17 @@ import { User } from '@/app/components/login';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type initialStateType = {
-  value: AuthState;
+  value: UserState;
 };
 
-type AuthState = {
+type UserState = {
   name: string;
   isAdmin: boolean;
   email: string;
 };
 
 const initialState = {
-  value: { name: '', isAdmin: false, email: '' } as AuthState,
+  value: { name: '', isAdmin: false, email: '' } as UserState,
 } as initialStateType;
 
 export const userSlice = createSlice({
@@ -20,7 +20,6 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action: PayloadAction<User>) => {
-      console.log(action.payload)
       return {
         value: action.payload,
       };
